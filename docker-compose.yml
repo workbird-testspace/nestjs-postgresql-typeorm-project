@@ -1,0 +1,29 @@
+services:
+  nestapp:
+    container_name: brave_chebyshev
+    image: sonu/nestjs-postgresql-typeorm-project
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_TYPE=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=bird424
+      - PG_DB=mule-test
+      - PG_PORT=5432
+      - PG_HOST=localhost
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres:16.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bird424
+      POSTGRES_DB: mule-test
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
