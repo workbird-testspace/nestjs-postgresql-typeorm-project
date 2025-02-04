@@ -35,4 +35,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 #avoid sensitive information from version control
-#.env
+.env

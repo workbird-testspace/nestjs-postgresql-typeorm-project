@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    image: addwords/nestjs_app:latest
     build:
       context: .
       dockerfile: Dockerfile
